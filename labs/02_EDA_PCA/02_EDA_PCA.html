@@ -16547,7 +16547,7 @@ Data visualization plays an important role in EDA. Next, we use the <a href="htt
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As we can see, showing data row-by-row with their column names does not help us get the "big picture" and characteristics of data.</p>
-<p>NOTE: <code>pd.read_csv()</code> function returns a <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">pandas.DataFrame</a> object. Pandas Dataframe is an useful "two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes".</p>
+<p>NOTE: <code>pd.read_csv()</code> function returns a <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">pandas.DataFrame</a> object. Pandas Dataframe is an useful "two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes".</p>
 <h3 id="Pairwise-Join-Distributions">Pairwise Join Distributions<a class="anchor-link" href="#Pairwise-Join-Distributions">&#182;</a></h3><p>We can instead see the join distribution of any pair of columns/attributes/variables/features by using the pairplot function offered by <a href="https://stanford.edu/~mwaskom/software/seaborn/">Seaborn</a>, which is based on <a href="http://matplotlib.org/">Matplotlib</a>:</p>
 
 </div>
@@ -37123,7 +37123,7 @@ iKzEAEVERFZigCIiIisxQBERkZX+PwFYIISYfHsLAAAAAElFTkSuQmCC
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, the data is more spread along the $x$-axis corresponding to the first principal component than the $y$-axis (second principal component), which is consistent with the explained variance ratio plot that we created in the previous subsection. PCA may save us from examining a lot of pairwise distributions (as shown in the previous section) when the original data dimension $D$ is high. For example, if we see that the data points with different labels can be separated in the space of PCs, then we can simply choose a linear classifier to do the classification.</p><p>Finally, let's save the compressed dataset for future use.</p>
+<p>As we can see, the data is more spread along the $x$-axis corresponding to the first principal component than the $y$-axis (second principal component), which is consistent with the explained variance ratio plot that we created in the previous subsection. PCA may save us from examining a lot of pairwise distributions (as shown in the previous section) when the original data dimension $D$ is high. For example, if we see that the data points with different labels can be separated in the space of PCA, then we can simply choose a linear classifier to do the classification.</p><p>Finally, let's save the compressed dataset for future use.</p>
 </div>
 </div>
 </div>
