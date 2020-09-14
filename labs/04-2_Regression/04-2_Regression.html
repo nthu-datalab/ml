@@ -16374,13 +16374,13 @@ div#notebook {
 <p>In this lab, we will guide you through the linear and polynomial regression using the Housing dataset (<a href="https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.names">description</a>, <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data">data</a>). We will also extend the Decision Tree and Random Forest classifiers that we have learned from our previous labs to solve the regression problem.</p>
 <h2 id="Linear-Regression">Linear Regression<a class="anchor-link" href="#Linear-Regression">&#182;</a></h2><p>Regression models are used to predict target variables ($y$'s) in continuous space, which makes them attractive for</p>
 <ul>
-<li>Understanding relationships between variables</li>
-<li>Evaluating trends</li>
-<li>Making forecasts</li>
+<li>Understanding relationships between variables.</li>
+<li>Evaluating trends.</li>
+<li>Making forecasts.</li>
 </ul>
 <p>Consider $y$ can be explained by the 1-D points ($x\in R$), the linear model is defined as:
 $$\hat{y} = w_{0}+w_{1}x$$
-Minimizing the sum of squared errors (SSE) can be understood as finding the best-fitting straight line through the example points. The best-fitting line is called the regression line (or hyperplane when  $x\in \mathbb{R}^D$, $D&gt;1$ ), and the vertical offsets from the regression line to the data points are called the <strong>residuals</strong> (i.e., the errors of our prediction), as shown in the following:
+Minimizing the sum of squared errors (SSE) can be understood as finding the best-fitting straight line through the example points. The best-fitting line is called the regression line (or hyperplane when  $x\in \mathbb{R}^D$, $D&gt;1$ ), and the vertical offsets from the regression line to the data points are called the <strong>residuals</strong>, i.e. prediction errors, as shown in the following figure:
 <img src="./fig-linear-regression.png" alt="">
 Note that the  $w_0$  and  $w_1$  control the intercept/bias and slope of the regression line respectively.</p>
 <h2 id="The-Housing-dataset">The Housing dataset<a class="anchor-link" href="#The-Housing-dataset">&#182;</a></h2><p>The Housing dataset from UCI repository collects information about houses in the suburbs of Boston. Following are the attributes:</p>
@@ -18196,7 +18196,7 @@ Intercept/bias (w_0): -34.67
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We may interpret the slope 9.10 as the average increase in 'MEDV' due to 'RM'. And the intercept sometimes also has physical meaning, but not in this case. Since that there is no negative value of a house.</p>
+<p>We may interpret the slope 9.10 as the average increase in 'MEDV' due to 'RM'. In contrast, the intercept sometimes also has physical meaning, but not in this case. Since that there is no negative value of a house.</p>
 
 </div>
 </div>
@@ -18570,19 +18570,16 @@ hmEYRi4xgTIMwzByyf8PujRTOFFs7WIAAAAASUVORK5CYII=
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#Testing data points: </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Standardization</span>
-
 <span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 <span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
 <span class="n">X_train_std</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
 <span class="n">X_test_std</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
 <span class="c1"># Training</span>
-
 <span class="n">slr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 <span class="n">slr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Testing</span>
-
 <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">slr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">)</span>
 <span class="n">y_test_pred</span> <span class="o">=</span> <span class="n">slr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_std</span><span class="p">)</span>
 
@@ -18951,11 +18948,16 @@ iQGKiIhiiQGKiIhiiQGKiIhiiQGKiIhiiQGKiIhi6f8D6XVv1PeGb9QAAAAASUVORK5CYII=
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">):</span>
             <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_input</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-            <span class="n">errors</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">output</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">*</span> <span class="n">errors</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-            <span class="n">cost</span> <span class="o">=</span> <span class="p">(</span><span class="n">errors</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.0</span>
+            
+            <span class="c1"># Cost function</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">output</span><span class="p">)</span>
+            <span class="n">cost</span> <span class="o">=</span> <span class="p">(</span><span class="n">error</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.0</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cost_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+            
+            <span class="c1"># Update rule</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">w_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">*</span> <span class="n">error</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span> <span class="nf">net_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
@@ -19549,7 +19551,7 @@ GIZh5JL/D6Uvs7xmNSYLAAAAAElFTkSuQmCC
 <span class="n">X_quad</span> <span class="o">=</span> <span class="n">quadratic</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_lin</span><span class="p">)</span>
 <span class="n">X_cubic</span> <span class="o">=</span> <span class="n">cubic</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_lin</span><span class="p">)</span>
 
-<span class="c1"># fit features</span>
+<span class="c1"># Fit features</span>
 <span class="n">lin_regr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 <span class="n">lin_regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_lin</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">linear_r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lin_regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_lin</span><span class="p">))</span>
@@ -19562,7 +19564,7 @@ GIZh5JL/D6Uvs7xmNSYLAAAAAElFTkSuQmCC
 <span class="n">cubic_regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_cubic</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">cubic_r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">cubic_regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_cubic</span><span class="p">))</span>
 
-<span class="c1"># plot results</span>
+<span class="c1"># Plot results</span>
 <span class="n">X_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">X_lin</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X_lin</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 <span class="n">y_lin_pred</span> <span class="o">=</span> <span class="n">lin_regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_range</span><span class="p">)</span>
 <span class="n">y_quad_pred</span> <span class="o">=</span> <span class="n">quad_regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">quadratic</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_range</span><span class="p">))</span>
@@ -20266,7 +20268,7 @@ R^2 train: 1.00, test: -258.55
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We notice a very interesting behavior here. As the degree of polynomial goes up, the training errors decrease, but <strong>not</strong> the testing errors. That is, <strong>a low training error does not implies a low training error</strong>. We will discuss this further in our next lecture.</p>
+<p>We notice a very interesting behavior here. As the degree of polynomial goes up, the training errors decrease, but <strong>not</strong> the test errors. That is, <strong>a low training error does not imply a low test error</strong>. We will discuss this further in our next lecture.</p>
 
 </div>
 </div>
@@ -21049,7 +21051,7 @@ LOd5BcokMmiazVxERDJJTXwiIpJJClAiIpJJClAiIpJJClAiIpJJClAiIpJJClAiIpJJClAiIpJJ
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We get better testing results ($R^2=0.83$) than those of multivariate linear regression ($R^2=0.67$) and see weaker patterns in the residual plot. However, we still observe that the testing performance is much worse than the training one. Understanding how the testing performance differs from the training performance is crucial and will be our next topic.</p>
+<p>We get better testing results ($R^2=0.83$) than those of multivariate linear regression ($R^2=0.67$) and see weaker patterns in the residual plot. However, we still observe that the testing performance is much worse than the training one. Understanding how the testing performance differs from the training performance is crucial, and we will dive into this topic in the next lecture.</p>
 
 </div>
 </div>
@@ -21057,7 +21059,7 @@ LOd5BcokMmiazVxERDJJTXwiIpJJClAiIpJJClAiIpJJClAiIpJJClAiIpJJClAiIpJJClAiIpJJ
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>NOTE: as in the classification, Decision Tree and Random Forest regression has a nice feature that they are <strong>not</strong> sensitive to the scaling of each explanatory variable. So we do not standardize features this time.</p>
+<p>NOTE: As in the classification, Decision Tree and Random Forest regression has a nice feature that they are <strong>not</strong> sensitive to the scaling of each explanatory variable, thus we do not standardize features this time.</p>
 
 </div>
 </div>
@@ -21078,9 +21080,9 @@ LOd5BcokMmiazVxERDJJTXwiIpJJClAiIpJJClAiIpJJClAiIpJJClAiIpJJClAiIpJJClAiIpJJ
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Assignmant"><center>Assignmant</center><a class="anchor-link" href="#Assignmant">&#182;</a></h1><p>In this assignment, you need to train regression models on <a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data">Beijing PM2.5 dataset</a> in winter of 2014.</p>
 <ol>
-<li>You have to implement:<ul>
-<li>a Linear(Polynomial) regressor.</li>
-<li>a Random Forest regressor.</li>
+<li>You have to implement <ul>
+<li>a Linear(Polynomial) regressor</li>
+<li>a Random Forest regressor</li>
 </ul>
 </li>
 <li>You need to show a residual plot for each of your model on both training data and testing data.</li>
