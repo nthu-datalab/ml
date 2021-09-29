@@ -2,7 +2,7 @@ from matplotlib.colors import ListedColormap
 import matplotlib.pyplot as plt
 import numpy as np
 
-########### plot validation history ############
+# ########## plot validation history ############
 
 
 def plot_validation_history(his, fig_path):
