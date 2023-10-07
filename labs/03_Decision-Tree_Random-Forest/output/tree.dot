@@ -1,5 +1,6 @@
 digraph Tree {
-node [shape=box] ;
+node [shape=box, fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
 0 [label="Flavanoids <= 1.575\nentropy = 1.571\nsamples = 124\nvalue = [40, 49, 35]"] ;
 1 [label="Color intensity <= 3.825\nentropy = 0.731\nsamples = 44\nvalue = [0, 9, 35]"] ;
 0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;

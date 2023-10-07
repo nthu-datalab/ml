@@ -33,8 +33,8 @@ def plot_validation_history(his, fig_path):
 def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
 
     # setup marker generator and color map
-    markers = ('s', 'x', 'o', '^', 'v')
-    colors = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
+    markers = ['s', 'x', 'o', '^', 'v']
+    colors = ['red', 'blue', 'lightgreen', 'gray', 'cyan']
     cmap = ListedColormap(colors[:len(np.unique(y))])
 
     # plot the decision surface
@@ -55,10 +55,8 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
             y = X[y == cl, 1],
             alpha = 0.8,
             c = [cmap(idx)],  # Prevents warning
-            linewidths = 1,
             marker = markers[idx],
-            label = cl,
-            edgecolors = 'k'
+            label = cl
         )
 
     # highlight test samples
@@ -69,7 +67,7 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
         plt.scatter(
             X_test[:, 0],
             X_test[:, 1],
-            c = '',
+            c = [cmap(i) for i in y_test],
             alpha = 1.0,
             linewidths = 1,
             marker = 'o',
