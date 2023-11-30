@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>13-2_GAN</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>13_GAN</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14579,7 +14579,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="GAN"><center>GAN</center><a class="anchor-link" href="#GAN">&#182;</a></h1><center>Shan-Hung Wu & DataLab<br/>Fall 2022</center>
+<h1 id="GAN"><center>GAN</center><a class="anchor-link" href="#GAN">&#182;</a></h1><center>Shan-Hung Wu & DataLab<br/>Fall 2023</center>
 </div>
 </div>
 </div>
@@ -14599,12 +14599,12 @@ GAN has two main components in the model, generator and discriminator. Discrimin
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -14646,50 +14646,12 @@ GAN has two main components in the model, generator and discriminator. Discrimin
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>ALSA lib confmisc.c:855:(parse_card) cannot find card &#39;0&#39;
-ALSA lib conf.c:5111:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
-ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
-ALSA lib conf.c:5111:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
-ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
-ALSA lib conf.c:5111:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
-ALSA lib conf.c:5599:(snd_config_expand) Evaluate error: No such file or directory
-ALSA lib pcm.c:2660:(snd_pcm_open_noupdate) Unknown PCM default
-ALSA lib confmisc.c:855:(parse_card) cannot find card &#39;0&#39;
-ALSA lib conf.c:5111:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
-ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
-ALSA lib conf.c:5111:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
-ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
-ALSA lib conf.c:5111:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
-ALSA lib conf.c:5599:(snd_config_expand) Evaluate error: No such file or directory
-ALSA lib pcm.c:2660:(snd_pcm_open_noupdate) Unknown PCM default
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gpus</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
@@ -15842,13 +15804,29 @@ jp-needs-light-background
 <li>Write a <strong>brief report</strong> about what you have done.</li>
 </ol>
 <h2 id="Notification">Notification<a class="anchor-link" href="#Notification">&#182;</a></h2><ul>
-<li>Upload the notebook named <strong>Lab13_2_{strudent_id}.ipynb</strong> to demonstrate your codes and report on google drive, then submit the <strong>link</strong> to eeclass.</li>
-<li>The deadline will be <strong>2022/12/08 23:59</strong>.</li>
+<li>Upload the notebook named <strong>Lab13_{strudent_id}.ipynb</strong> to demonstrate your codes and report on google drive, then submit the <strong>link</strong> to eeclass.</li>
+<li>The deadline will be <strong>2022/12/14 23:59</strong>.</li>
 </ul>
 
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 </body>
 
